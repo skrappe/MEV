@@ -9,7 +9,7 @@ public class Info {
         // Install bufferReader, & run through data.
         BufferedReader reader; // Initialise Bufferredder.
         try {
-            reader = new BufferedReader(new FileReader("/Users/mortennielsen/Desktop/IntelliJ/StreamningProject/Presentation/Data/film.txt")); // Initialise new filereader, and get path to data.
+            reader = new BufferedReader(new FileReader("./Data/film.txt")); // Initialise new filereader, and get path to data.
             String filmContent = reader.readLine(); // Read the first line.
             while (filmContent != null) { // Loop through data by looking at each line, and finish at null.
                 String[] words = filmContent.split(";"); // Makes each line into an Array, and splits at ;.
