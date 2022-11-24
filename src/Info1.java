@@ -5,25 +5,41 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Info1 {
-    static ArrayList<Series> liste;
+    private ArrayList<Series> serieListe;
+
+    public ArrayList<Series> getSerieListe() {
+        return serieListe;
+    }
 
     public void Serier() {
-        liste = new ArrayList<>();
+        serieListe = new ArrayList<>();
+
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Presentation/Data/serier.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("./Data/serier.txt"));
             String seriesContent = br.readLine();
             while (seriesContent != null) {
                 String[] words = seriesContent.split(";");
-                words[3] = words[3].replace(",", "");
-                words[1] = words[1].replace(" ", "");
-                System.out.println(br);
+                words[3] = words[3].replace(",", ".");
+                words[1] = words[1].trim();
+                Series serie = createSerie(words);
+                serieListe.add(serie);
                 seriesContent = br.readLine();
             }
             br.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
-    // Make an object that creates a movie with the corresponding index positions. (title, year, genre, rating).
 
+    public Series createSerie(String[] words) {
+        return new Series(words[0], words[1], words[2], Double.parseDouble(words[3]), words[4]);
+
+        // Make an object that creates a movie with the corresponding index positions. (title, year, genre, rating).
+    }
+
+    public void printSeries() {
+        for (Series series : serieListe) {
+            System.out.println(series.title + " " + series.year + " " + series.genre + " " + series.rating + " " + series.season);
+        }
+    }
 }

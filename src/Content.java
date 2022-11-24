@@ -1,11 +1,11 @@
 public class Content {
      String title;
      String genre;
-     int year;
+     String year;
      double rating;
 
 
-    public Content(String title, int year, String genre, double rating) {
+    public Content(String title, String year, String genre, double rating) {
         this.title = title;
         this.year = year;
         this.genre = genre;
@@ -18,7 +18,7 @@ public class Content {
         public String getGenre(){
             return genre;
         }
-        public int getYear(){
+        public String getYear(){
             return year;
         }
         public double getRating(){

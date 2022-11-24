@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+import java.util.*;
 
 public class Image extends JFrame {
     ImageIcon image;
@@ -8,10 +9,10 @@ public class Image extends JFrame {
     JLabel displayField;
 
     public Image(){
-        frame = new JFrame("Image Display test");
+        frame = new JFrame("Netflix");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try {
-            image = new ImageIcon(getClass().getResource("Data/serieforsider/24.jpg"));
+            image = new ImageIcon(getClass().getResource("./Images/Braveheart.jpg"));
             displayField = new JLabel(image);
             frame.add(displayField);
         } catch(Exception e){
